@@ -29,7 +29,7 @@ type RobotsResource struct {
 // GET /robots
 func (v RobotsResource) List(c buffalo.Context) error {
 	// Get the DB connection from the context
-	tx, ok := c.Value("tx").(*pop.Connection)
+	db, ok := c.Value("tx").(*pop.Connection)
 	if !ok {
 		return errors.WithStack(errors.New("no transaction found"))
 	}
@@ -38,7 +38,7 @@ func (v RobotsResource) List(c buffalo.Context) error {
 
 	// Paginate results. Params "page" and "per_page" control pagination.
 	// Default values are "page=1" and "per_page=20".
-	q := tx.PaginateFromParams(c.Params())
+	q := db.PaginateFromParams(c.Params())
 
 	// Retrieve all Robots from the DB
 	if err := q.All(robots); err != nil {
@@ -52,7 +52,6 @@ func (v RobotsResource) List(c buffalo.Context) error {
     fmt.Printf("robot = \n")
     fmt.Printf("%+v\n", robots)
     fmt.Printf("%+v\n", "data")
-
 
 	return c.Render(200, r.Auto(c, robots))
 }
