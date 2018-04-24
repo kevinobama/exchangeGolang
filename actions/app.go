@@ -26,6 +26,7 @@ func App() *buffalo.App {
 	if app == nil {
 		app = buffalo.New(buffalo.Options{
 			Env:         ENV,
+			LooseSlash:  true,
 			SessionName: "_exchange_session",
 		})
 		// Automatically redirect to SSL
@@ -61,27 +62,26 @@ func App() *buffalo.App {
 		app.Resource("/currencies", CurrenciesResource{})
 		//app.Resource("/robots", RobotsResource{})
 		app.Resource("/exchanges", ExchangesResource{})
-		app.ServeFiles("/", assetsBox) // serve files from the public directory
- 		
- 		//order := &OrdersResource{}
- 		//app.GET("/kevin", order.List)
-		
+
+		//order := &OrdersResource{}
+		//app.GET("/kevin", order.List)
+
 		//robot := &RobotsResource{}
-		 
+
 		//app.GET("/robotsCustom/listall", robotListAll)
 		//app.GET("/users", user.List)
 
 		// app.GET("/robots", func (c buffalo.Context) error {
-  // 			return c.Render(200, r.String(c.Param("name")))
+		// 			return c.Render(200, r.String(c.Param("name")))
 		// })
 
 		//app.GET("/robots", UsersRegisterGet)
 		// app.GET("/robots", func (c buffalo.Context) error {
-  // 			return c.Render(200, r.String(c.Param("name")))
+		// 			return c.Render(200, r.String(c.Param("name")))
 		// })
 		//app.GET("/signin", AuthNew)
 		// app.GET("/robots", func (c buffalo.Context) error {
-  // 			return c.Render(200, r.String(c.Param("name")))
+		// 			return c.Render(200, r.String(c.Param("name")))
 		// })
 		//app.GET("/orders", order.List)
 
@@ -90,6 +90,8 @@ func App() *buffalo.App {
 		app.GET("/register", AuthNew)
 		//auth.POST("/register", UsersRegisterPost)
 
+		app.GET("/robots/getListAll", RobotsGetListAll)
+		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 
 	return app

@@ -1,11 +1,7 @@
 package actions
 
 import (
-
 	"github.com/gobuffalo/buffalo"
- 
- 
- 
 )
 
 // AuthNew loads the signin page

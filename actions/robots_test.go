@@ -27,3 +27,7 @@ func (as *ActionSuite) Test_RobotsResource_Update() {
 func (as *ActionSuite) Test_RobotsResource_Destroy() {
 	as.Fail("Not Implemented!")
 }
+
+func (as *ActionSuite) Test_Robots_GetListAll() {
+	as.Fail("Not Implemented!")
+}

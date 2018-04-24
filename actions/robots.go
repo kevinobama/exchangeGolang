@@ -1,13 +1,14 @@
 package actions
 
 import (
-     "fmt"
+	"fmt"
+
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/pop"
 	"github.com/kevingates/exchange/models"
 	"github.com/pkg/errors"
 )
- 
+
 // Following naming logic is implemented in Buffalo:
 // Model: Singular (Robot)
 // DB Table: Plural (robots)
@@ -26,7 +27,7 @@ func UsersRegisterGet(c buffalo.Context) error {
 }
 
 func (v RobotsResource) robotListAll(context buffalo.Context) error {
-	
+
 	db, ok := context.Value("tx").(*pop.Connection)
 	if !ok {
 		return errors.WithStack(errors.New("no transaction found"))
@@ -46,13 +47,13 @@ func (v RobotsResource) robotListAll(context buffalo.Context) error {
 	robot := &models.Robot{}
 
 	// To find the Robot the parameter robot_id is used.
-    db.Find(robot, "668a37f1-c47d-48a3-b8c8-d456ec98aee7")
-	 	 
-    //fmt.Printf("%+v\n", robots)
-    fmt.Printf("robots = \n")
-    fmt.Printf("%+v\n", robots)
-    fmt.Printf("%+v\n", "robot=")
-    fmt.Printf("%+v\n", robot)
+	db.Find(robot, "668a37f1-c47d-48a3-b8c8-d456ec98aee7")
+
+	//fmt.Printf("%+v\n", robots)
+	fmt.Printf("robots = \n")
+	fmt.Printf("%+v\n", robots)
+	fmt.Printf("%+v\n", "robot=")
+	fmt.Printf("%+v\n", robot)
 
 	//return c.Render(200, r.Auto(c, robots))
 	return context.Render(200, r.JSON(robots))
@@ -61,7 +62,7 @@ func (v RobotsResource) robotListAll(context buffalo.Context) error {
 // List gets all Robots. This function is mapped to the path
 // GET /robots
 func (v RobotsResource) List(c buffalo.Context) error {
-	
+
 	db, ok := c.Value("tx").(*pop.Connection)
 	if !ok {
 		return errors.WithStack(errors.New("no transaction found"))
@@ -81,10 +82,10 @@ func (v RobotsResource) List(c buffalo.Context) error {
 	// Add the paginator to the context so it can be used in the template.
 	c.Set("pagination", query.Paginator)
 
-    //fmt.Printf("%+v\n", robots)
-    fmt.Printf("robot = \n")
-    fmt.Printf("%+v\n", robots)
-    fmt.Printf("%+v\n", "data")
+	//fmt.Printf("%+v\n", robots)
+	fmt.Printf("robot = \n")
+	fmt.Printf("%+v\n", robots)
+	fmt.Printf("%+v\n", "data")
 
 	return c.Render(200, r.Auto(c, robots))
 }
@@ -241,4 +242,9 @@ func (v RobotsResource) Destroy(c buffalo.Context) error {
 
 	// Redirect to the robots index page
 	return c.Render(200, r.Auto(c, robot))
+}
+
+// RobotsGetListAll default implementation.
+func RobotsGetListAll(c buffalo.Context) error {
+	return c.Render(200, r.HTML("robots/get_list_all.html"))
 }
