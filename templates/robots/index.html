@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1>Robots</h1>
+</div>
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= newRobotsPath() %>" class="btn btn-primary">Create New Robot</a></li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+  <th>Name</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (robot) in robots { %>
+      <tr>
+      <td><%= robot.Name %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= robotPath({ robot_id: robot.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editRobotPath({ robot_id: robot.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= robotPath({ robot_id: robot.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

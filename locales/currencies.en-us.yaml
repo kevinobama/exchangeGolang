@@ -1,0 +1,6 @@
+- id: "currency.created.success"
+  translation: "Currency was successfully created."
+- id: "currency.updated.success"
+  translation: "Currency was successfully updated."
+- id: "currency.destroyed.success"
+  translation: "Currency was successfully destroyed."

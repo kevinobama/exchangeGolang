@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>New Exchange</h1>
+</div>
+
+<%= form_for(exchange, {action: exchangesPath(), method: "POST"}) { %>
+  <%= partial("exchanges/form.html") %>
+  <a href="<%= exchangesPath() %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

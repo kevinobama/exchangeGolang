@@ -1,0 +1,6 @@
+- id: "robot.created.success"
+  translation: "Robot was successfully created."
+- id: "robot.updated.success"
+  translation: "Robot was successfully updated."
+- id: "robot.destroyed.success"
+  translation: "Robot was successfully destroyed."

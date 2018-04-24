@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h1>Currency#Show</h1>
+</div>
+
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= currenciesPath() %>" class="btn btn-info">Back to all Currencies</a></li>
+  <li><a href="<%= editCurrencyPath({ currency_id: currency.ID })%>" class="btn btn-warning">Edit</a></li>
+  <li><a href="<%= currencyPath({ currency_id: currency.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+</ul>
+
+<p>
+  <strong>Name</strong>: <%= currency.Name %>
+</p>

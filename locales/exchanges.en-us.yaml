@@ -1,0 +1,6 @@
+- id: "exchange.created.success"
+  translation: "Exchange was successfully created."
+- id: "exchange.updated.success"
+  translation: "Exchange was successfully updated."
+- id: "exchange.destroyed.success"
+  translation: "Exchange was successfully destroyed."
