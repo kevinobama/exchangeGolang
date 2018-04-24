@@ -1,6 +1,7 @@
 package actions
 
 import (
+     "fmt"
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/pop"
 	"github.com/kevingates/exchange/models"
@@ -46,6 +47,12 @@ func (v RobotsResource) List(c buffalo.Context) error {
 
 	// Add the paginator to the context so it can be used in the template.
 	c.Set("pagination", q.Paginator)
+
+    //fmt.Printf("%+v\n", robots)
+    fmt.Printf("robot = \n")
+    fmt.Printf("%+v\n", robots)
+    fmt.Printf("%+v\n", "data")
+
 
 	return c.Render(200, r.Auto(c, robots))
 }
