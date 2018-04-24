@@ -1,0 +1,3 @@
+create_table("users", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+})

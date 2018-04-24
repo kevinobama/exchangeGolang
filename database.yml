@@ -2,12 +2,12 @@ development:
   dialect: "mysql"
   database: "exchange_development"
   host: "localhost"
-  port: "3306"
+  port: "8306"
   user: "root"
-  password: "root"
+  password: "lark.li1980"
 
 test:
-  url: {{envOr "TEST_DATABASE_URL" "mysql://root:root@(localhost:3306)/exchange_test?parseTime=true&multiStatements=true&readTimeout=1s"}}
+  url: {{envOr "TEST_DATABASE_URL" "mysql://root:lark.li1980@(localhost:8306)/exchange_test?parseTime=true&multiStatements=true&readTimeout=1s"}}
 
 production:
-  url: {{envOr "DATABASE_URL" "mysql://root:root@(localhost:3306)/exchange_production?parseTime=true&multiStatements=true&readTimeout=1s"}}
+  url: {{envOr "DATABASE_URL" "mysql://root:lark.li1980@(localhost:8306)/exchange_production?parseTime=true&multiStatements=true&readTimeout=1s"}}

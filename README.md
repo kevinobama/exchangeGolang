@@ -32,3 +32,11 @@ We recommend you heading over to [http://gobuffalo.io](http://gobuffalo.io) and 
 Good luck!
 
 [Powered by Buffalo](http://gobuffalo.io)
+
+
+buffalo g resource orders order_id name email bio:nulls.Text
+
+Run the dev server on a custom port
+Sometimes you will already have an app working on the 3000 port. You can configure the dev server port by providing the PORT environment variable:
+
+$ PORT=3001 buffalo dev

@@ -1,0 +1,7 @@
+create_table("orders", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("order_id", "string", {})
+	t.Column("name", "string", {})
+	t.Column("email", "string", {})
+	t.Column("bio", "text", {"null": true})
+})

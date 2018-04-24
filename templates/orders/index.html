@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>Orders</h1>
+</div>
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= newOrdersPath() %>" class="btn btn-primary">Create New Order</a></li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+  <th>OrderID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (order) in orders { %>
+      <tr>
+      <td><%= order.OrderID %></td>
+        <td><%= order.Name %></td>
+        <td><%= order.Email %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= orderPath({ order_id: order.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editOrderPath({ order_id: order.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= orderPath({ order_id: order.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>
