@@ -248,3 +248,12 @@ func (v RobotsResource) Destroy(c buffalo.Context) error {
 func RobotsGetListAll(c buffalo.Context) error {
 	return c.Render(200, r.HTML("robots/get_list_all.html"))
 }
+
+// RobotsGetListAllOne default implementation.
+func RobotsGetListAllOne(c buffalo.Context) error {
+	return c.Render(200, r.HTML("robots/get_list_all_one.html"))
+}
+
+func RobotsGetListAllTwo(c buffalo.Context) error {
+	return c.Render(200, r.HTML("robots/get_list_all_one.html"))
+}

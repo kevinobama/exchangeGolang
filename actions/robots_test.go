@@ -31,3 +31,7 @@ func (as *ActionSuite) Test_RobotsResource_Destroy() {
 func (as *ActionSuite) Test_Robots_GetListAll() {
 	as.Fail("Not Implemented!")
 }
+
+func (as *ActionSuite) Test_Robots_GetListAllOne() {
+	as.Fail("Not Implemented!")
+}
