@@ -57,11 +57,39 @@ func App() *buffalo.App {
 		app.GET("/", HomeHandler)
 
 		app.Resource("/users", UsersResource{})
-		app.Resource("/orders", OrdersResource{})
+		//app.Resource("/orders", OrdersResource{})
 		app.Resource("/currencies", CurrenciesResource{})
-		app.Resource("/robots", RobotsResource{})
+		//app.Resource("/robots", RobotsResource{})
 		app.Resource("/exchanges", ExchangesResource{})
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
+ 		
+ 		//order := &OrdersResource{}
+ 		//app.GET("/kevin", order.List)
+		
+		//robot := &RobotsResource{}
+		 
+		//app.GET("/robotsCustom/listall", robotListAll)
+		//app.GET("/users", user.List)
+
+		// app.GET("/robots", func (c buffalo.Context) error {
+  // 			return c.Render(200, r.String(c.Param("name")))
+		// })
+
+		//app.GET("/robots", UsersRegisterGet)
+		// app.GET("/robots", func (c buffalo.Context) error {
+  // 			return c.Render(200, r.String(c.Param("name")))
+		// })
+		//app.GET("/signin", AuthNew)
+		// app.GET("/robots", func (c buffalo.Context) error {
+  // 			return c.Render(200, r.String(c.Param("name")))
+		// })
+		//app.GET("/orders", order.List)
+
+		//auth.GET("/login", UsersLoginGet)
+		//auth := app.Group("/bitcoin")
+		app.GET("/register", AuthNew)
+		//auth.POST("/register", UsersRegisterPost)
+
 	}
 
 	return app
